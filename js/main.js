@@ -1,78 +1,78 @@
 const menuItems = [
   {
-    href: "pages/home.html",
+    href: "pages/home.php",
     icon: "ri-dashboard-line",
     text: "Home",
     authorized: ["admin", "student", "parent", "teacher"],
   },
   {
-    href: "pages/students.html",
+    href: "pages/students.php",
     icon: "ri-group-line",
     text: "Students",
     authorized: ["admin", "teacher"],
   },
   {
-    href: "pages/teachers.html",
+    href: "pages/teachers.php",
     icon: "ri-presentation-line",
     text: "Teachers",
     authorized: ["admin", "teacher"],
   },
   {
-    href: "pages/parents.html",
+    href: "pages/parents.php",
     icon: "ri-team-line",
     text: "Parents",
     authorized: ["admin", "teacher"],
   },
   {
-    href: "pages/subjects.html",
+    href: "pages/subjects.php",
     icon: "ri-book-line",
     text: "Subjects",
     authorized: ["admin"],
   },
   {
-    href: "pages/classes.html",
+    href: "pages/classes.php",
     icon: "ri-home-2-line",
     text: "Classes",
     authorized: ["admin", "teacher"],
   },
   {
-    href: "pages/lessons.html",
+    href: "pages/lessons.php",
     icon: "ri-book-open-line",
     text: "Lessons",
     authorized: ["admin", "teacher"],
   },
   {
-    href: "pages/exams.html",
+    href: "pages/exams.php",
     icon: "ri-file-list-line",
     text: "Exams",
     authorized: ["admin", "student", "parent", "teacher"],
   },
   {
-    href: "pages/assignments.html",
+    href: "pages/assignments.php",
     icon: "ri-file-copy-line",
     text: "Assignments",
     authorized: ["admin", "student", "parent", "teacher"],
   },
   {
-    href: "pages/results.html",
+    href: "pages/results.php",
     icon: "ri-trophy-line",
     text: "Results",
     authorized: ["admin", "student", "parent", "teacher"],
   },
   {
-    href: "pages/attendance.html",
+    href: "pages/attendance.php",
     icon: "ri-user-follow-line",
     text: "Attendance",
     authorized: ["admin", "student", "parent", "teacher"],
   },
   {
-    href: "pages/events.html",
+    href: "pages/events.php",
     icon: "ri-calendar-event-line",
     text: "Events",
     authorized: ["admin", "student", "parent", "teacher"],
   },
   {
-    href: "pages/announcements.html",
+    href: "pages/announcements.php",
     icon: "ri-megaphone-line",
     text: "Announcements",
     authorized: ["admin", "student", "parent", "teacher"],
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadPage();
   generateMenu(role);
 
-  function loadPage(page = "pages/home.html") {
+  function loadPage(page = "pages/home.php") {
     fetch(page)
       .then((response) => {
         if (!response.ok) {
@@ -109,10 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("content").innerHTML = data;
 
         // Déterminer le nom du script en fonction de la page
-        const scriptName = `js/${page
-          .split("/")
-          .pop()
-          .replace(".html", ".js")}`;
+        const scriptName = `js/${page.split("/").pop().replace(".php", ".js")}`;
 
         // Vérifier et supprimer l'ancien script s'il existe, basé sur un ID unique
         const existingScript = document.getElementById("dynamic-script");

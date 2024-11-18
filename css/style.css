@@ -99,6 +99,7 @@ section {
   background: var(--color-bg-light);
   font-family: sans-serif;
   font-size: 16px;
+  margin-inline: auto;
 }
 
 /* Bloc Sidebar */
@@ -221,6 +222,7 @@ header button {
 /* Bloc Overlay */
 main {
   position: relative;
+  background: rgb(236, 52, 52);
 }
 
 .overlay {
