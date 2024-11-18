@@ -1,3 +1,44 @@
+<?php
+$events = [
+  [
+    "title" => "Summer camp trip",
+    "time" => "12:00PM - 2:00PM",
+    "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+  ],
+  [
+    "title" => "Art workshop",
+    "time" => "3:00PM - 5:00PM",
+    "description" => "Quisquam consequatur temporibus amet minima culpa."
+  ],
+  [
+    "title" => "Cooking class",
+    "time" => "6:00PM - 8:00PM",
+    "description" => "Nihil obcaecati, dolorum facere cumque architecto."
+  ]
+];
+
+$announcements = [
+  [
+    "title" => "Parent-Teacher Meeting",
+    "date" => "2024-11-25",
+    "description" => "Join us for the upcoming parent-teacher meeting to discuss student progress."
+  ],
+  [
+    "title" => "Science Fair",
+    "date" => "2024-12-01",
+    "description" => "Students are invited to participate in the annual science fair. Showcase your projects!"
+  ],
+  [
+    "title" => "Winter Break Announcement",
+    "date" => "2024-12-20",
+    "description" => "The school will be closed for winter break from December 20th to January 5th."
+  ]
+];
+
+
+$days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+?>
+
 <section class="home">
   <div class="stats">
     <div class="stats-card">
@@ -86,24 +127,18 @@
     <div class="row row-between header">
       <p class="current-date"></p>
       <div class="row icons">
-        <span id="prev" class="control-btn"
-          ><i class="ri-arrow-left-s-line"></i>
+        <span id="prev" class="control-btn"><i class="ri-arrow-left-s-line"></i>
         </span>
-        <span id="next" class="control-btn"
-          ><i class="ri-arrow-right-s-line"></i>
+        <span id="next" class="control-btn"><i class="ri-arrow-right-s-line"></i>
         </span>
       </div>
     </div>
 
     <div class="calendar">
       <ul class="weeks">
-        <li>Sun</li>
-        <li>Mon</li>
-        <li>Tue</li>
-        <li>Wed</li>
-        <li>Thu</li>
-        <li>Fri</li>
-        <li>Sat</li>
+        <?php foreach ($days as $day): ?>
+          <li><?= $day ?></li>
+        <?php endforeach ?>
       </ul>
       <ul class="days"></ul>
     </div>
@@ -117,33 +152,17 @@
       </button>
     </div>
     <ul>
-      <li>
-        <div class="row row-between">
-          <h4 class="event-title">Summer camp trip</h4>
-          <small>12:00PM - 2:00PM</small>
-        </div>
-        <p class="event-descrition">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-      </li>
-      <li>
-        <div class="row row-between">
-          <h4 class="event-title">Summer camp trip</h4>
-          <small>12:00PM - 2:00PM</small>
-        </div>
-        <p class="event-descrition">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-      </li>
-      <li>
-        <div class="row row-between">
-          <h4 class="event-title">Summer camp trip</h4>
-          <small>12:00PM - 2:00PM</small>
-        </div>
-        <p class="event-descrition">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-      </li>
+      <?php foreach ($events as $event): ?>
+        <li>
+          <div class="row row-between">
+            <h4 class="event-title"><?= htmlspecialchars($event['title']) ?></h4>
+            <small><?= htmlspecialchars($event['time']) ?></small>
+          </div>
+          <p class="event-descrition">
+            <?= htmlspecialchars($event['description']) ?>
+          </p>
+        </li>
+      <?php endforeach; ?>
     </ul>
   </div>
 
@@ -153,33 +172,17 @@
       <small>View All</small>
     </div>
     <ul>
-      <li>
-        <div class="row row-between">
-          <h4 class="event-title">Summer camp trip</h4>
-          <small class="badge">2024-12-04</small>
-        </div>
-        <p class="event-descrition">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-      </li>
-      <li>
-        <div class="row row-between">
-          <h4 class="event-title">Summer camp trip</h4>
-          <small class="badge">2024-12-04</small>
-        </div>
-        <p class="event-descrition">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-      </li>
-      <li>
-        <div class="row row-between">
-          <h4 class="event-title">Summer camp trip</h4>
-          <small class="badge">2024-12-04</small>
-        </div>
-        <p class="event-descrition">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-      </li>
+      <?php foreach ($announcements as $announcement): ?>
+        <li>
+          <div class="row row-between">
+            <h4 class="event-title"><?= htmlspecialchars($announcement['title']) ?></h4>
+            <small class="badge"><?= htmlspecialchars($announcement['date']) ?></small>
+          </div>
+          <p class="event-descrition">
+            <?= htmlspecialchars($announcement['description']) ?>
+          </p>
+        </li>
+      <?php endforeach; ?>
     </ul>
   </div>
 </aside>

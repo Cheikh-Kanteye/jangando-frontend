@@ -1,6 +1,23 @@
+<?php
+// Données des matières
+$subjects = [
+  [
+    "name" => "Mathematics",
+    "teachers" => "John Doe, Jane Smith"
+  ],
+  [
+    "name" => "Physics",
+    "teachers" => "Albert Einstein"
+  ],
+  [
+    "name" => "Chemistry",
+    "teachers" => "Marie Curie, Rosalind Franklin"
+  ]
+];
+?>
 <div class="flex-1 table-container">
   <div class="row row-between">
-    <h2>All Classes</h2>
+    <h2>All Subjects</h2>
     <div class="row">
       <div class="row search-input">
         <i class="ri-search-line"></i>
@@ -8,8 +25,7 @@
           type="text"
           placeholder="Search from table..."
           name="search"
-          id="search"
-        />
+          id="search" />
       </div>
       <button><i class="ri-equalizer-line"></i></button>
       <button><i class="ri-sort-desc"></i></button>
@@ -20,24 +36,22 @@
   <table>
     <thead>
       <tr>
-        <th>Class name</th>
-        <th>Capacity</th>
-        <th>Grade</th>
-        <th>Supervisor</th>
+        <th>Subject Name</th>
+        <th>Teachers</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>------</td>
-        <td>------</td>
-        <td>------</td>
-        <td>------</td>
-        <td class="row">
-          <button><i class="ri-edit-box-line"></i></button>
-          <button><i class="ri-delete-bin-6-line"></i></button>
-        </td>
-      </tr>
+      <?php foreach ($subjects as $subject): ?>
+        <tr>
+          <td><?= htmlspecialchars($subject['name']) ?></td>
+          <td><?= htmlspecialchars($subject['teachers']) ?></td>
+          <td class="row">
+            <button><i class="ri-edit-box-line"></i></button>
+            <button><i class="ri-delete-bin-6-line"></i></button>
+          </td>
+        </tr>
+      <?php endforeach; ?>
     </tbody>
   </table>
 </div>
